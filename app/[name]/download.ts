@@ -1,6 +1,6 @@
 import { Pupil } from "../pupil-list";
 
-export const downloadCanvas = (canvasRef, pupil: Pupil) => {
+export const downloadCanvas = (canvasRef: React.RefObject<HTMLCanvasElement | null>, pupil: Pupil): void => {
     if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
