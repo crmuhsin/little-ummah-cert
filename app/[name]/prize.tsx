@@ -1,0 +1,43 @@
+import { Pupil } from "../pupil-list";
+import Image from "next/image"
+
+export default function Prize({ pupil }: { pupil: Pupil }) {
+    const positionText = (position: number) => {
+        if (position == 1) {
+            return (
+                <span>1<sup>st</sup> position</span>
+            )
+        }
+        if (position == 2) {
+            return (
+                <span>2<sup>nd</sup> position</span>
+            )
+        }
+        if (position == 3) {
+            return (
+                <span>3<sup>rd</sup> position</span>
+            )
+        }
+    }
+
+    const ageText = (group: string) => {
+        return (
+            <>
+                <span>(</span>
+                <span>{group}</span>
+                <span>)</span>
+            </>
+        )
+    }
+    return (
+        <div className="relative min-w-[960px] min-h-[540px] overflow-clip">
+            <Image src="/prize.png" width={960} height={540} alt={pupil.name} />
+            <div className="absolute top-[274px] left-[230px] text-[50px]">
+                <h1>{pupil.name}</h1>
+            </div>
+            <div className="absolute top-[401px] left-[264px] text-[18px] text-yellow-200">
+                <i>{positionText(pupil.position || 0)} {ageText(pupil.ageGroup || "")}</i>
+            </div>
+        </div>
+    )
+}
