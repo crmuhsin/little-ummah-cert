@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  @page {
+    size: 25cm 35.7cm;
+    margin: 5mm 5mm 5mm 5mm;
+    /* change the margins as you want them to be. */
+  }
+}
