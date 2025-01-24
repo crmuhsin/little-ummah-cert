@@ -27,10 +27,6 @@ export default function Page({ params }: RouteParams) {
         }
     };
 
-    const handleDownload = () => {
-        window.print()
-    }
-
     useEffect(() => {
         fetchData();
     }, []);
@@ -54,7 +50,7 @@ export default function Page({ params }: RouteParams) {
                 <title>{pupil.name}</title>
             </Head>
             <div className="flex flex-col justify-center items-center size-full gap-6">
-                <div>
+                <div id="screenshot-target">
                     {
                         pupil.certificateType == "prize" ?
                             <Prize pupil={pupil} />
@@ -63,12 +59,6 @@ export default function Page({ params }: RouteParams) {
                                 <Parti pupil={pupil} />
                     }
                 </div>
-                <button
-                    onClick={handleDownload}
-                    className="w-full md:w-64 flex bg-lime-500 text-hc-black text-xl px-4 py-2 rounded-lg justify-center items-center hover:bg-lime-300 hover:text-slate-600"
-                >
-                    <span>Download</span>
-                </button>
             </div>
         </section>
     );
